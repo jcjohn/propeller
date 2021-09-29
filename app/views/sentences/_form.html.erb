@@ -1,0 +1,20 @@
+<p>
+    <%= f.label, :words, 'Sentence' %>
+    <%= f.text_field, :words 5>
+<p>
+<h4>Entities</h4>
+<div>
+    <template>
+        <%= f.fields_for Sentence.new, child_index: 'NEW_RECORD' do |entity| %>
+            <%= render 'entity_fields', locals: {entity: entity} %>
+        <%- end -%>
+    </template>
+
+    <%= f.fields_for :entities do |entity|
+        <%= render 'entity_fields', locals: {entity: entity} %>
+    <%- end -%>
+
+    <div data-sentences-target="links">
+        <%= link_to 'Add Entitiy', '#', data: { action: add_association } %>
+    </div>
+</div>

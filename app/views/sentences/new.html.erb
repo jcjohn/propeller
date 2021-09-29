@@ -1,0 +1,5 @@
+<h2>New Sentence</h2>
+
+<%= form_for @sentence, html: { class: 'form-vertical' } do |f|
+    <%= render 'form', locals: { f: f, sentence: sentence } %>
+<%- end -%>

@@ -1,0 +1,27 @@
+<h2>Sentences</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Sentence</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <%- @sentences.each do |sentence| -%>
+            <tr>
+                <td><%= sentence.id %></td>
+                <td data-controller="sentences" data-sentences-entities="<%= j sentence.entities.to_json %>">
+                    <p data-sentences-target="output"><%= sentence.words %></p>
+                </td>
+                <td><%= link_to 'Show', sentence_path(sentence) %></td>
+                <td><%= link_to 'Edit', edit_sentence_path(sentence) %></td>
+                <td><%= link_to 'Destroy', sentence, method: 'delete', { confirm: "Are you sure?", disable_with "Processing..."} %></td>
+            <tr>
+        <%- end -%>
+    </tbody>
+</table>
+<%= link_to 'Add new sentence', new_sentece_path %>

@@ -1,0 +1,7 @@
+<h2>Sentence <%=@sentence.id %></h2>
+
+<div  data-controller="sentences" data-sentences-entities="<%= j @sentence.entities.to_json %>">
+    <p data-sentences-target="output"><%= @sentence.words %></p>
+</div>
+
+<%= link_to 'Return to listing', sentences_path %>
